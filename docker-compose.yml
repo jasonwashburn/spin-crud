@@ -12,6 +12,8 @@ services:
       MYSQL_DATABASE: products
     volumes:
       - ./scripts/db/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
 
 
   adminer:
