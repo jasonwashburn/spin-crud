@@ -1,0 +1,20 @@
+spin_version = "1"
+authors = ["Jason Washburn <jason.washburn@gmail.com>"]
+description = "CRUD with MySQL"
+name = "spin-crud"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "spin-crud"
+source = "target/wasm32-wasi/release/spin_crud.wasm"
+allowed_http_hosts = []
+
+[component.config]
+mysql_address = "mysql://sampleuser:foobar@127.0.0.1/products"
+
+[component.trigger]
+route = "/..."
+
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
